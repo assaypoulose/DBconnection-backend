@@ -12,6 +12,10 @@ db(); //establishing the DB connection
 
 app.use(express.json()); // to attach with app the express.json data
 
+app.get('/',(req, res)=>{
+    res.status(200).send('Welcome to my Quotes Application')
+})
+
 app.use(quotesRoutes);
 
 const PORT = process.env.PORT;
