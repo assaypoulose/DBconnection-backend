@@ -1,24 +1,25 @@
 const express = require('express');
 const { getAllQuotes, getQuoteByID, addQuote, updateQuote, deleteQuote } = require('../controllers/quotes.controller');
+const { requireSignIn, isAuth } = require('../utils/authentication');
 
 const router = express.Router();
 
 //GET - > to retrive data
-router.get('/quotes',getAllQuotes);
+router.get('/:userID/quotes',requireSignIn, isAuth,getAllQuotes);
 
 //GET - > to retrive 1 data
-router.get('/quotes/quoteID',getQuoteByID);
+router.get('/:userID/quotes/quoteID',requireSignIn, isAuth,getQuoteByID);
 
 //POST -> to insert data
-router.post('/quotes', addQuote);
+router.post('/:userID/quotes',requireSignIn, isAuth, addQuote);
 
 
 //PUT -> To update data
-router.put('/quotes/:quoteID',updateQuote);
+router.put('/:userID/quotes/:quoteID',requireSignIn, isAuth,updateQuote);
 
 
 //DELETE -> to delete data
-router.delete('/quotes/:quoteID',deleteQuote);
+router.delete('/:userID/quotes/:quoteID',requireSignIn, isAuth,deleteQuote);
 
 
 module.exports = router;

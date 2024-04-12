@@ -4,6 +4,7 @@ const { MongooseError } = require('mongoose');
 
 exports.getAllQuotes = async (req, res) => {
     try {
+        console.log('Query Params: ', req.query)
         const quotes = await Quotes.find().exec();
         res.status(200).send(quotes);
         } catch (error) {
