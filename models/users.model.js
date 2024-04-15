@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    roleNumber: {
+    role: {
         type: Number,
         default: 3,
         required: true
