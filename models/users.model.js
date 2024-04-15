@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     roleNumber: {
         type: Number,
+        default: 3,
         required: true
     },
     bloodGroup: {
